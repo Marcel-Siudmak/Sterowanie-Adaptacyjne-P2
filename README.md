@@ -358,3 +358,15 @@ for k = 1..N:
 8. **Dodatek**: kod źródłowy (lub odnośnik do repozytorium).
 
 Wszystkie rysunki i tabele muszą być opisane w tekście i zawierać wniosek (nie wolno ich tylko wstawić bez komentarza).
+
+---
+
+## 10. Status realizacji projektu
+
+- [x] **Etap 0° – Symulacja danych (`src/simulate.py`)**
+  - Zaimplementowano generator danych wejście–wyjście dla obiektu FIR 4. rzędu ($y_k = \varphi_k^T \theta_k^* + z_k$) z warunkami początkowymi $u_k = 0$ dla $k \le 0$.
+  - Przygotowano definicje scenariuszy parametrów: stacjonarnego (`theta_stationary` dla Etapu 1°) oraz niestacjonarnego ze skokiem $b_1^*: 9 \to 5$ w $k_0 = 500$ (`theta_nonstationary` dla Etapu 2°).
+  - Zweryfikowano powtarzalność wyników dla zadanego ziarna generatora `numpy.random.default_rng`.
+- [ ] **Etap 1° – Obiekt stacjonarny (`src/rls.py`, eksperymenty 1A–1E)**
+- [ ] **Etap 2° – Obiekt niestacjonarny (`src/metrics.py`, eksperymenty 2A–2D)**
+- [ ] **Generowanie wykresów i sprawozdanie (`src/main.py`, `results/`, `report/`)**
