@@ -361,12 +361,16 @@ Wszystkie rysunki i tabele muszą być opisane w tekście i zawierać wniosek (n
 
 ---
 
+---
+
 ## 10. Status realizacji projektu
 
 - [x] **Etap 0° – Symulacja danych (`src/simulate.py`)**
   - Zaimplementowano generator danych wejście–wyjście dla obiektu FIR 4. rzędu ($y_k = \varphi_k^T \theta_k^* + z_k$) z warunkami początkowymi $u_k = 0$ dla $k \le 0$.
   - Przygotowano definicje scenariuszy parametrów: stacjonarnego (`theta_stationary` dla Etapu 1°) oraz niestacjonarnego ze skokiem $b_1^*: 9 \to 5$ w $k_0 = 500$ (`theta_nonstationary` dla Etapu 2°).
   - Zweryfikowano powtarzalność wyników dla zadanego ziarna generatora `numpy.random.default_rng`.
-- [ ] **Etap 1° – Obiekt stacjonarny (`src/rls.py`, eksperymenty 1A–1E)**
-- [ ] **Etap 2° – Obiekt niestacjonarny (`src/metrics.py`, eksperymenty 2A–2D)**
-- [ ] **Generowanie wykresów i sprawozdanie (`src/main.py`, `results/`, `report/`)**
+- [x] **Algorytm estymacji RLS (`src/rls.py`)**
+  - Zaimplementowano uniwersalny estymator `rls(u, y, lam, p0)` obsługujący zarówno obiekt stacjonarny ($\lambda = 1$), jak i niestacjonarny ($\lambda \in (0, 1)$) wraz ze śledzeniem śladu macierzy kowariancji $P_k$.
+  - Zweryfikowano zbieżność estymat do $\theta^* = [1, 9, 0, 4]^T$ dla scenariusza stacjonarnego.
+- [ ] **Metryki i miary jakości (`src/metrics.py`)**
+- [ ] **Eksperymenty 1A–1E, 2A–2D, wykresy i sprawozdanie (`src/main.py`, `results/`, `report/`)**
