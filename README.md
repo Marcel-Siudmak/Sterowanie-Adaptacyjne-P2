@@ -363,6 +363,8 @@ Wszystkie rysunki i tabele muszą być opisane w tekście i zawierać wniosek (n
 
 ---
 
+---
+
 ## 10. Status realizacji projektu
 
 - [x] **Etap 0° – Symulacja danych (`src/simulate.py`)**
@@ -372,5 +374,10 @@ Wszystkie rysunki i tabele muszą być opisane w tekście i zawierać wniosek (n
 - [x] **Algorytm estymacji RLS (`src/rls.py`)**
   - Zaimplementowano uniwersalny estymator `rls(u, y, lam, p0)` obsługujący zarówno obiekt stacjonarny ($\lambda = 1$), jak i niestacjonarny ($\lambda \in (0, 1)$) wraz ze śledzeniem śladu macierzy kowariancji $P_k$.
   - Zweryfikowano zbieżność estymat do $\theta^* = [1, 9, 0, 4]^T$ dla scenariusza stacjonarnego.
-- [ ] **Metryki i miary jakości (`src/metrics.py`)**
-- [ ] **Eksperymenty 1A–1E, 2A–2D, wykresy i sprawozdanie (`src/main.py`, `results/`, `report/`)**
+- [x] **Metryki i miary jakości (`src/metrics.py`)**
+  - Zaimplementowano funkcje `mse_curve`, `rmse_curve`, `settling_time` (czas dojścia $T_s$ do pasma $\pm 0.2$) oraz `steady_rmse` (błąd uśredniony na zadanym przedziale).
+- [x] **Eksperymenty 1A–1E, 2A–2D oraz wizualizacje (`src/main.py`, `results/`)**
+  - Zaimplementowano kompletny skrypt uruchamiający wszystkie eksperymenty i badania Monte Carlo ($M = 100$) ze stałymi parametrami w słowniku `PARAMS`.
+  - Wygenerowano wszystkie 9 wymaganych wykresów (`fig1_dane.png` – `fig9_kompromis.png`, 150 dpi) oraz tabele wyników (`tabela_2c_sigma_0.5.csv`, `tabela_2c_sigma_2.0.csv`).
+  - Potwierdzono spełnienie kryteriów akceptacji (zgodność z LS, monotoniczność kompromisu $T_s$ vs RMSE, optymalne $\lambda = 0.90$ dla $\sigma_z = 0.5$ oraz $\lambda = 0.95$ dla $\sigma_z = 2.0$).
+- [ ] **Sprawozdanie końcowe (`report/`)**
